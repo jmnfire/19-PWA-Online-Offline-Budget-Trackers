@@ -13,7 +13,7 @@ const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 
 const config = {
-  entry: "./public/assets/js/app.js",
+  entry: "./public/assets/index.js",
   output: {
     path: __dirname + "/public/dist",
     filename: "bundle.js"
@@ -22,7 +22,7 @@ const config = {
   plugins: [
     new WebpackPwaManifest({
       // the name of the generated manifest file
-      filename: "manifest.json",
+      filename: "manifest.webmanifest",
 
       // we aren't using webpack to generate our html so we
       // set inject to false
@@ -43,7 +43,7 @@ const config = {
         {
           src: path.resolve(
             __dirname,
-            "public/assets/images/icons/icon-512x512.png"
+            "/assets/images/icons/icon-512x512.png"
             ),
           // the plugin will generate an image for each size
           // included in the size array
