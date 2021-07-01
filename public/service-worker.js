@@ -1,22 +1,21 @@
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
-  "/assets/css/style.css",
-  "/assets/images/Angular-icon.png",
-  "/assets/images/React-icon.png",
-  "/assets/images/Vue.js-icon.png",
+  "/styles.css",
+  "/index.js",
+  "/indexedDb.js",
   "/manifest.webmanifest",
-  "/assets/images/icons/icon-192x192.png",
-  "/assets/images/icons/icon-512x512.png",
+  "/icons/icon-192x192.png",
+  "/icons/icon-512x512.png",
 ];
 
-const CACHE_NAME = "static-cache-v2";
-const DATA_CACHE_NAME = "data-cache-v1";
+const CACHE_NAME = "my-code";
+const DATA_CACHE_NAME = "my-code-again";
 
 // install
 self.addEventListener("install", function(evt) {
   evt.waitUntil(
-    caches.open("static").then(cache => {
+    caches.open(CACHE_NAME).then(cache => {
       console.log("Your files were pre-cached successfully!");
       return cache.addAll(FILES_TO_CACHE);
     })
@@ -25,6 +24,7 @@ self.addEventListener("install", function(evt) {
   self.skipWaiting();
 });
 
+// active 
 self.addEventListener("activate", function(evt) {
   evt.waitUntil(
     caches.keys().then(keyList => {

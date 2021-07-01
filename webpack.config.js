@@ -1,21 +1,11 @@
-// const config = {
-//   entry: "./routes/api.js",
-//   output: {
-//     path: __dirname + "/dist",
-//     filename: "bundle.js"
-//   },
-//   mode: "development"
-// };
-
-// module.exports = config;
 
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 
 const config = {
-  entry: "./public/assets/index.js",
+  entry: "/public/index.js",
   output: {
-    path: __dirname + "/public/dist",
+    path: __dirname + "/dist",
     filename: "bundle.js"
   },
   mode: "production",
@@ -43,7 +33,7 @@ const config = {
         {
           src: path.resolve(
             __dirname,
-            "/assets/images/icons/icon-512x512.png"
+            "/icons/icon-512x512.png"
             ),
           // the plugin will generate an image for each size
           // included in the size array
